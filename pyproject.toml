@@ -1,0 +1,15 @@
+[project]
+name = "cc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dash>=3.2.0",
+    "networkx>=3.5",
+    "numpy>=2.3.3",
+    "pandas>=2.3.3",
+    "pyvis>=0.3.2",
+    "pyvis-network>=0.0.6",
+    "streamlit>=1.50.0",
+]
