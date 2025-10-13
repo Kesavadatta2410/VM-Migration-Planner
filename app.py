@@ -29,7 +29,7 @@ if vm_file and host_file and net_file:
     plan = migration_planner(vms, hosts, network_bandwidth_mbps=network_bandwidth)
     
     # Display migration statistics
-    st.header("📊 Migration Statistics")
+    st.header(" Migration Statistics")
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -50,7 +50,7 @@ if vm_file and host_file and net_file:
         st.metric("Total Resource Units", f"{total_resources:.0f}")
     
     # Display color legend
-    st.header("🎨 Visualization Legend")
+    st.header(" Visualization Legend")
     
     legend_col1, legend_col2 = st.columns(2)
     
@@ -69,7 +69,7 @@ if vm_file and host_file and net_file:
         st.markdown("🔴 **Red Arrow** - Migration path with time estimate")
     
     # Build and visualize graph
-    st.header("🗺️ Network Topology & Migration Plan")
+    st.header(" Network Topology & Migration Plan")
     G = build_graph(network_df, hosts, vms, plan)
 
     html_file = visualize_graph(G, "network_graph.html")
@@ -78,7 +78,7 @@ if vm_file and host_file and net_file:
     st.components.v1.html(html_content, height=750)
     
     # Display detailed migration table
-    st.header("📋 Detailed Migration Plan")
+    st.header(" Detailed Migration Plan")
     
     # Create a formatted table for display
     display_plan = []
@@ -97,21 +97,21 @@ if vm_file and host_file and net_file:
     st.dataframe(display_plan, use_container_width=True)
     
     # Export options
-    st.header("💾 Export Migration Plan")
+    st.header(" Export Migration Plan")
     col_exp1, col_exp2 = st.columns(2)
     
     with col_exp1:
         if st.button("Export as CSV"):
             export_plan(plan, "migration_plan.csv")
-            st.success('✅ Migration plan exported as migration_plan.csv')
+            st.success(' Migration plan exported as migration_plan.csv')
     
     with col_exp2:
         if st.button("Export as JSON"):
             export_plan(plan, "migration_plan.json")
-            st.success('✅ Migration plan exported as migration_plan.json')
+            st.success(' Migration plan exported as migration_plan.json')
     
     # Show raw plan data in expander
     with st.expander("🔍 View Raw Migration Plan Data"):
         st.json(plan)
 else:
-    st.warning("⚠️ Upload all required datasets to proceed.")
+    st.warning(" Upload all required datasets to proceed.")

@@ -72,9 +72,9 @@ def build_graph(network_df, hosts, vms, plan):
         
         if is_migrated:
             migration_data = migrated_vms[vm.id]
-            vm_info += f"\n\n🔄 Migrating to: {migration_data['host_id']}"
+            vm_info += f"\n\n Migrating to: {migration_data['host_id']}"
             if migration_data['estimated_time_minutes']:
-                vm_info += f"\n⏱️ Est. Time: {migration_data['estimated_time_minutes']} min"
+                vm_info += f"\n Est. Time: {migration_data['estimated_time_minutes']} min"
         
         G.add_node(
             vm.id,
@@ -91,7 +91,7 @@ def build_graph(network_df, hosts, vms, plan):
             # Create migration edge label
             edge_label = "Migration"
             if mapping['estimated_time_minutes']:
-                edge_label += f"\n⏱️ {mapping['estimated_time_minutes']} min"
+                edge_label += f"\n {mapping['estimated_time_minutes']} min"
             
             # Add edge with styling
             G.add_edge(
